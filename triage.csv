@@ -1,0 +1,11 @@
+ID,Composant,Vulnérabilité,Confiance,Sévérité,Impact,Recommandation,Statut
+V1,PWList Activity,Exportée sans protection,Élevée,Critique,Contournement authentification - accès direct aux mots de passe,Définir android:exported=false,À corriger
+V2,DBContentProvider/Passwords,Injection SQL en Projection et Selection,Élevée,Critique,Extraction de tous les mots de passe stockés,Implémenter validation des entrées et paramètres préparés,À corriger
+V3,FileBackupProvider,Path Traversal,Élevée,Critique,Accès aux fichiers système de l'application,Définir android:exported=false ou ajouter permission,À corriger
+V4,DBContentProvider/Keys,Injection SQL - URI accessible sans permission,Élevée,Critique,Accès aux clés de chiffrement,Ajouter permission globale sur DBContentProvider,À corriger
+V5,FileSelectActivity,Exportée sans protection,Élevée,Élevée,Accès non autorisé à la sélection de fichiers,Définir android:exported=false,À corriger
+V6,AuthService,Service exporté sans validation,Élevée,Élevée,Exécution non autorisée du service d'authentification,Ajouter permission ou définir exported=false,À corriger
+V7,CryptoService,Service exporté sans validation,Élevée,Élevée,Accès non autorisé aux fonctions de chiffrement,Ajouter permission ou définir exported=false,À corriger
+V8,Application,android:debuggable=true,Élevée,Élevée,Débogage possible - extraction de données en mémoire,Définir android:debuggable=false en production,À corriger
+V9,Application,android:allowBackup=true,Élevée,Moyenne,Extraction des données via ADB sans root,Définir android:allowBackup=false,À corriger
+V10,READ_KEYS/WRITE_KEYS permissions,Protection niveau dangerous (0x1),Moyenne,Moyenne,Permissions trop faibles pour données sensibles,Utiliser protectionLevel=signature,À corriger
